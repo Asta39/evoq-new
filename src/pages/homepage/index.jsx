@@ -1,14 +1,14 @@
 import React from 'react';
 import SEOHead from '../../components/SEOHead';
 import { getPageSEO } from '../../utils/seoConfig';
-import Header from '../../components/ui/Header';
+// DELETED: The "import Header" line is now GONE.
 import WhatsAppWidget from '../../components/ui/WhatsAppWidget';
 import HeroSection from './components/HeroSection';
 import MissionSection from './components/MissionSection';
 import ServicesSection from './components/ServicesSection';
 import PricingSection from './components/PricingSection';
 import TestimonialsSection from './components/TestimonialsSection';
-import PortfolioPreview from './components/PortfolioPreview';
+
 import ContactSection from './components/ContactSection';
 
 const Homepage = () => {
@@ -20,25 +20,25 @@ const Homepage = () => {
     "@type": "WebSite",
     "name": "Evoq Creative Tech",
     "alternateName": "Evoq Creative Tech - Web Development Company",
-    "url": "https://evoq-creative-tech.vercel.app",
+    "url": "https://evoqcreative.co.ke/",
     "description": "Professional web development company specializing in React, modern web technologies, and creative digital experiences. Custom web applications, responsive design, and technical SEO optimization.",
     "publisher": {
       "@type": "Organization",
       "name": "Evoq Creative Tech",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://evoq-creative-tech.vercel.app/assets/images/logo.png"
+        "url": "https://evoqcreative.co.ke/assets/images/logo.png"
       }
     },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://evoq-creative-tech.vercel.app/search?q={search_term_string}",
+      "target": "https://evoqcreative.co.ke/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     },
     "mainEntity": {
       "@type": "Organization",
       "name": "Evoq Creative Tech",
-      "url": "https://evoq-creative-tech.vercel.app",
+      "url": "https://evoqcreative.co.ke/",
       "description": "Professional web development and digital solutions company",
       "foundingDate": "2020",
       "numberOfEmployees": "10-50",
@@ -112,7 +112,7 @@ const Homepage = () => {
       />
       
       <div className="min-h-screen bg-background">
-        <Header />
+      
         
         <main role="main">
           <HeroSection />
@@ -120,7 +120,7 @@ const Homepage = () => {
           <ServicesSection />
           <PricingSection />
           <TestimonialsSection />
-          <PortfolioPreview />
+          
           <ContactSection />
         </main>
 

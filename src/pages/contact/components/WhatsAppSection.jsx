@@ -39,14 +39,14 @@ const WhatsAppSection = () => {
   ];
 
   const handleWhatsAppClick = (template) => {
-    const phoneNumber = '+254700000000';
+    const phoneNumber = '254115706542';
     const message = encodeURIComponent(template.message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   const generateQRCode = () => {
-    const phoneNumber = '+254700000000';
+    const phoneNumber = '254115706542';
     const selectedMsg = messageTemplates.find(t => t.id === selectedTemplate);
     const message = encodeURIComponent(selectedMsg.message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -143,7 +143,7 @@ const WhatsAppSection = () => {
               </div>
               
               <div className="text-sm text-text-secondary space-y-2">
-                <p>1. Open WhatsApp on your phone</p>
+                <p>1. Open Camera app on your phone</p>
                 <p>2. Tap the QR code scanner</p>
                 <p>3. Point your camera at the code</p>
                 <p>4. Start chatting instantly!</p>

@@ -22,7 +22,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
 
   const handleStartSimilarProject = () => {
     const message = `Hi! I'm interested in starting a similar project to ${project.title} for ${project.client}. Can we discuss the requirements?`;
-    const phoneNumber = '+254700000000';
+    const phoneNumber = '254115706542';
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
@@ -61,7 +61,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           <Image
             src={project.gallery[currentImageIndex]}
             alt={`${project.title} - Image ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain bg-black/10"
           />
           
           {/* Navigation Arrows */}

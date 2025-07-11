@@ -27,7 +27,7 @@ const Contact = () => {
         <meta property="og:title" content="Contact Us - Evoq Creative Tech" />
         <meta property="og:description" content="Get in touch with Kenya's leading digital agency. Multiple ways to connect and start your project." />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://evoqcreativetech.com/contact" />
+        <link rel="canonical" href="https://evoqcreative.co.ke/contact" />
       </Helmet>
 
       <div className="min-h-screen bg-background">

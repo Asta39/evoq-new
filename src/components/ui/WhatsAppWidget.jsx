@@ -34,7 +34,7 @@ const WhatsAppWidget = () => {
   };
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '+254700000000'; // Replace with actual WhatsApp number
+    const phoneNumber = '+254115706542'; // Replace with actual WhatsApp number
     const message = encodeURIComponent(getContextualMessage());
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import Header from '../../components/ui/Header';
 import WhatsAppWidget from '../../components/ui/WhatsAppWidget';
 import Breadcrumb from '../../components/ui/Breadcrumb';
@@ -10,11 +12,14 @@ import PaymentTermsSection from './components/PaymentTermsSection';
 import ComparisonToggle from './components/ComparisonToggle';
 import FeatureComparison from './components/FeatureComparison';
 import PricingCalculator from './components/PricingCalculator';
+import PricingBrochure from './components/PricingBrochure';
 
 import Button from '../../components/ui/Button';
+import Icon from '../../components/AppIcon';
 
 const PricingPackages = () => {
   const [isComparisonMode, setIsComparisonMode] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState(null);
 
   useEffect(() => {
@@ -106,12 +111,40 @@ const PricingPackages = () => {
     }
   ];
 
+    const handleDownloadBrochure = () => {
+    setIsDownloading(true);
+    const brochureElement = document.getElementById('full-pricing-brochure');
+
+    html2canvas(brochureElement, { scale: 2, windowWidth: brochureElement.scrollWidth, windowHeight: brochureElement.scrollHeight }).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png', 1.0);
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      let heightLeft = pdfHeight;
+      let position = 0;
+
+      pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+      heightLeft -= pdf.internal.pageSize.getHeight();
+
+      while (heightLeft >= 0) {
+        position = heightLeft - pdfHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfHeight);
+        heightLeft -= pdf.internal.pageSize.getHeight();
+      }
+      
+      pdf.save('Evoq-Creative-Tech-Pricing-Guide.pdf');
+      setIsDownloading(false);
+    });
+  };
+
+
   const handlePackageSelect = (packageData) => {
     setSelectedPackage(packageData);
     const message = encodeURIComponent(
       `Hi! I'm interested in the ${packageData.name} package (KES ${packageData.price.toLocaleString()}). Can we discuss the details?`
     );
-    window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
   };
 
   const handleAddOnSelect = (selectedAddOns, total) => {
@@ -119,30 +152,24 @@ const PricingPackages = () => {
     const message = encodeURIComponent(
       `Hi! I'm interested in these add-ons: ${addOnNames}. Total cost: KES ${total.toLocaleString()}. Can we discuss?`
     );
-    window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
   };
 
   const handleQuoteRequest = (quoteData) => {
     const message = encodeURIComponent(
       `Hi! I'd like a custom quote for an AI-enhanced website. Project type: ${quoteData.projectType}, Features: ${quoteData.selectedFeatures.map(f => f.label).join(', ')}, Estimated: KES ${quoteData.estimatedPrice.toLocaleString()}`
     );
-    window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
   };
 
   const handleCalculatorResult = (result) => {
     const message = encodeURIComponent(
       `Hi! I calculated a quote: ${result.package?.name} package + add-ons. Total: KES ${result.total.toLocaleString()}. Can we discuss?`
     );
-    window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
   };
 
-  const handleDownloadBrochure = () => {
-    // In a real app, this would trigger a PDF download
-    const message = encodeURIComponent(
-      "Hi! I'd like to download your pricing brochure and discuss your services."
-    );
-    window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
-  };
+
 
   return (
     <>
@@ -173,31 +200,33 @@ const PricingPackages = () => {
                   Just honest pricing for exceptional web solutions.
                 </p>
                 
-                <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    onClick={handleDownloadBrochure}
-                    className="btn-hover-scale"
-                    iconName="Download"
-                    iconPosition="left"
-                  >
-                    Download Pricing Guide
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    onClick={() => {
-                      const message = encodeURIComponent("Hi! I'd like to schedule a consultation to discuss my project requirements.");
-                      window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
-                    }}
-                    className="btn-hover-scale"
-                    iconName="Calendar"
-                    iconPosition="left"
-                  >
-                    Schedule Consultation
-                  </Button>
-                </div>
+               {/* --- PASTE THIS NEW, CORRECTED CODE BLOCK --- */}
+
+<div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+  
+  {/* Download Pricing Guide Button */}
+  <button
+    onClick={handleDownloadBrochure}
+    disabled={isDownloading}
+    className="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3 font-semibold text-text-primary bg-black/5 backdrop-blur-md border border-black/10 rounded-full transition-all duration-300 hover:bg-black/10 hover:border-black/20 disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    <Icon name="Download" size={20} className="transition-transform duration-300 group-hover:scale-110" />
+    <span>{isDownloading ? 'Generating...' : 'Download Pricing Guide'}</span>
+  </button>
+  
+  {/* Schedule Consultation Button */}
+  <button
+    onClick={() => {
+      const message = encodeURIComponent("Hi! I'd like to schedule a consultation to discuss my project requirements.");
+      window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
+    }}
+    className="group w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-3 font-semibold text-text-primary bg-black/5 backdrop-blur-md border border-black/10 rounded-full transition-all duration-300 hover:bg-black/10 hover:border-black/20"
+  >
+    <Icon name="Calendar" size={20} className="transition-transform duration-300 group-hover:scale-110" />
+    <span>Schedule Consultation</span>
+  </button>
+
+</div>
               </div>
             </div>
           </section>
@@ -323,7 +352,7 @@ const PricingPackages = () => {
                   size="lg"
                   onClick={() => {
                     const message = encodeURIComponent("Hi! I'm ready to start my project. Can we discuss the details?");
-                    window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+                    window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
                   }}
                   className="btn-hover-scale"
                   iconName="MessageCircle"
@@ -347,6 +376,10 @@ const PricingPackages = () => {
         </main>
 
         <WhatsAppWidget />
+              {/* --- 5. RENDER THE HIDDEN BROCHURE COMPONENT --- */}
+        <div style={{ position: 'absolute', left: '-9999px', top: 0, zIndex: -1 }}>
+          <PricingBrochure id="full-pricing-brochure" packages={packages} />
+        </div>
       </div>
     </>
   );

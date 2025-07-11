@@ -46,34 +46,56 @@ const ServiceSidebar = ({ selectedService }) => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    alert('Thank you for your inquiry! We will contact you within 24 hours.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: selectedService,
-      message: ''
-    });
-    setIsSubmitting(false);
-  };
 
+    // 1. Get the human-readable service name from the form's service value.
+    const serviceName = serviceOptions.find(s => s.value === formData.service)?.label || formData.service;
+
+    // 2. Define your WhatsApp number.
+    const whatsappNumber = "254115706542";
+
+    // 3. Create a clean, well-formatted message.
+    const formattedMessage = `
+*New Consultation Request from Sidebar Form*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Phone:* ${formData.phone}
+*Selected Service:* ${serviceName}
+
+*Message:*
+${formData.message}
+    `;
+
+    // 4. Encode the message and create the WhatsApp URL.
+    const encodedMessage = encodeURIComponent(formattedMessage.trim());
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    // 5. Open WhatsApp in a new tab.
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    // 6. Reset the form and the submitting state.
+    // We add a small delay to allow the new tab to open smoothly.
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: selectedService, // Reset to the currently viewed service
+        message: ''
+      });
+    }, 500);
+  };
   const handleWhatsAppContact = () => {
     const serviceName = serviceOptions.find(s => s.value === selectedService)?.label || 'Website Development';
     const message = `Hi! I'm interested in ${serviceName} services. Can we discuss my project?`;
-    window.open(`https://wa.me/254700000000?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/254115706542?text=${encodeURIComponent(message)}`, '_blank');
   };
 
-  const handleDownloadBrochure = () => {
-    // Simulate PDF download
-    alert('Service brochure download will start shortly!');
-  };
+
 
   return (
     <div className="space-y-6">
@@ -112,29 +134,15 @@ const ServiceSidebar = ({ selectedService }) => {
         </div>
 
         <div className="space-y-3">
-          <Button
-            variant="primary"
-            size="md"
-            fullWidth
-            onClick={handleWhatsAppContact}
-            className="btn-hover-scale"
-            iconName="MessageCircle"
-            iconPosition="left"
-          >
-            WhatsApp Us
-          </Button>
+<button
+  onClick={handleWhatsAppContact}
+  className="group w-full flex items-center justify-center gap-3 px-8 py-3 font-semibold text-text-primary bg-black/5 backdrop-blur-md border border-black/10 rounded-full transition-all duration-300 hover:bg-black/10 hover:border-black/20"
+>
+  <Icon name="MessageCircle" size={20} className="transition-transform duration-300 group-hover:scale-110" />
+  <span>WhatsApp Us</span>
+</button>
           
-          <Button
-            variant="outline"
-            size="md"
-            fullWidth
-            onClick={handleDownloadBrochure}
-            className="btn-hover-scale"
-            iconName="Download"
-            iconPosition="left"
-          >
-            Download Brochure
-          </Button>
+
         </div>
       </div>
 
@@ -198,18 +206,25 @@ const ServiceSidebar = ({ selectedService }) => {
             required
           />
           
-          <Button
-            type="submit"
-            variant="primary"
-            size="md"
-            fullWidth
-            loading={isSubmitting}
-            className="btn-hover-scale"
-            iconName="Send"
-            iconPosition="right"
-          >
-            {isSubmitting ? 'Sending...' : 'Send Inquiry'}
-          </Button>
+<button
+  type="submit"
+  disabled={isSubmitting}
+  className="group w-full flex items-center justify-center gap-3 px-8 py-3 font-semibold text-text-primary bg-black/5 backdrop-blur-md border border-black/10 rounded-full transition-all duration-300 hover:bg-black/10 hover:border-black/20 disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  {isSubmitting ? (
+    // Loading indicator
+    <>
+      <div className="w-5 h-5 border-2 border-text-primary/50 border-t-text-primary rounded-full animate-spin"></div>
+      <span>Sending...</span>
+    </>
+  ) : (
+    // Default state
+    <>
+      <span>Send Inquiry</span>
+      <Icon name="Send" size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+    </>
+  )}
+</button>
         </form>
       </div>
 
@@ -246,12 +261,12 @@ const ServiceSidebar = ({ selectedService }) => {
         <div className="space-y-3">
           <div className="flex items-center space-x-3">
             <Icon name="Phone" size={18} />
-            <span className="font-body">+254 700 000 000</span>
+            <span className="font-body">+254 115 706 542</span>
           </div>
           
           <div className="flex items-center space-x-3">
             <Icon name="Mail" size={18} />
-            <span className="font-body">hello@evoqcreativetech.com</span>
+            <span className="font-body">evoqcreativetech@gmail.com</span>
           </div>
           
           <div className="flex items-center space-x-3">

@@ -99,7 +99,7 @@ const FAQ = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={() => {
-                  const phoneNumber = '+254700000000';
+                  const phoneNumber = '254115706542';
                   const message = encodeURIComponent('Hi! I have a question that\'s not covered in your FAQ. Can you help?');
                   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
                   window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -110,7 +110,7 @@ const FAQ = () => {
                 Chat on WhatsApp
               </button>
               <button
-                onClick={() => window.location.href = 'mailto:hello@evoqcreativetech.com'}
+                onClick={() => window.location.href = 'mailto:evoqcreativetech@gmail.com'}
                 className="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-body font-medium rounded-lg transition-colors duration-200"
               >
                 <Icon name="Mail" size={18} className="mr-2" />

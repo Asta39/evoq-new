@@ -1,33 +1,38 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import Image from '../../../components/AppImage';
 import Icon from '../../../components/AppIcon';
+import CareerModal from './../components/CareerModal';
 
 const TeamShowcase = () => {
+
+  const [isCareerModalOpen, setIsCareerModalOpen] = useState(false);
+
   const teamData = [
     {
       id: 1,
-      name: "David Kimani",
+      name: "Ian Love",
       role: "Founder & CEO",
       expertise: ["Full-Stack Development", "AI Integration", "Business Strategy"],
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
+      image: "/assets/images/founder.jpg",
       bio: "Visionary leader with 8+ years of experience in web development and AI solutions. Passionate about empowering Kenyan businesses through technology.",
       social: {
-        linkedin: "#",
+       /* linkedin: "#",
         twitter: "#",
-        github: "#"
+        github: "#"*/
       }
     },
     {
       id: 2,
-      name: "Sarah Wanjiku",
+      name: "Carl Curtis",
       role: "Lead UI/UX Designer",
       expertise: ["User Experience", "Interface Design", "Brand Identity"],
-      image: "https://images.unsplash.com/photo-1494790108755-2616b9e0e4b6?w=300&h=300&fit=crop&crop=face",
+      image: "/assets/images/founder.jpg",
       bio: "Creative designer with a keen eye for user-centered design. Specializes in creating intuitive interfaces that drive engagement and conversions.",
       social: {
-        linkedin: "#",
+      /*  linkedin: "#",
         dribbble: "#",
-        behance: "#"
+        behance: "#"*/
       }
     },
     {
@@ -35,14 +40,16 @@ const TeamShowcase = () => {
       name: "Michael Ochieng",
       role: "Senior Developer",
       expertise: ["React Development", "Node.js", "Database Design"],
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
+      image: "/assets/images/founder.jpg",
       bio: "Technical expert with deep knowledge in modern web technologies. Builds scalable applications that perform flawlessly under pressure.",
       social: {
+        /*
         linkedin: "#",
         github: "#",
-        stackoverflow: "#"
+        stackoverflow: "#"*/
       }
     },
+    /*
     {
       id: 4,
       name: "Grace Mutindi",
@@ -81,7 +88,7 @@ const TeamShowcase = () => {
         twitter: "#",
         slack: "#"
       }
-    }
+    }*/
   ];
 
   const getSocialIcon = (platform) => {
@@ -194,19 +201,22 @@ const TeamShowcase = () => {
             <p className="font-body text-text-secondary mb-6 max-w-2xl mx-auto">
               We're always looking for talented individuals who share our passion for innovation and excellence. Join us in building the future of digital experiences in Kenya.
             </p>
-            <button
-              onClick={() => {
-                const message = encodeURIComponent("Hi! I'm interested in career opportunities at Evoq Creative Tech.");
-                window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
-              }}
-              className="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-medium rounded-lg transition-colors duration-200 btn-hover-scale"
-            >
-              <Icon name="Briefcase" size={20} className="mr-2" />
-              Explore Careers
-            </button>
+<div className="flex justify-center">
+  <button
+    onClick={() => setIsCareerModalOpen(true)}
+    className="group flex items-center justify-center gap-3 px-8 py-3 font-semibold text-text-primary bg-black/5 backdrop-blur-md border border-black/10 rounded-full transition-all duration-300 hover:bg-black/10 hover:border-black/20"
+  >
+    <Icon name="Briefcase" size={20} className="transition-transform duration-300 group-hover:scale-110" />
+    <span>Explore Careers</span>
+  </button>
+  </div>
           </div>
         </div>
       </div>
+      <CareerModal 
+  isOpen={isCareerModalOpen} 
+  onClose={() => setIsCareerModalOpen(false)} 
+/>
     </section>
   );
 };

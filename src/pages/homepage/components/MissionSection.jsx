@@ -64,15 +64,16 @@ const MissionSection = () => {
           <div className="relative">
             <div className="relative z-10">
               <Image
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=face"
-                alt="Founder of Evoq Creative Tech"
-                className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-lg"
-              />
+      // --- CHANGE THIS LINE ---
+      src="/assets/images/founder.jpg" // Change filename if yours is different
+      alt="David Kimani, Founder of Evoq Creative Tech" // Updated alt text for better SEO
+      className="w-full h-96 lg:h-[500px] object-cover rounded-2xl shadow-lg"
+    />
               
               {/* Overlay Card */}
               <div className="absolute bottom-6 left-6 right-6 bg-background/95 backdrop-blur-sm rounded-xl p-6 shadow-lg">
                 <h4 className="font-heading font-semibold text-lg text-primary mb-2">
-                  David Kimani
+                  Ian Love
                 </h4>
                 <p className="font-body text-sm text-text-secondary mb-3">
                   Founder & Lead Developer

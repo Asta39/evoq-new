@@ -50,12 +50,24 @@ const ServiceHero = ({ selectedService, onConsultationClick }) => {
 
   return (
     <section className="relative bg-gradient-to-br from-primary via-primary/95 to-primary/90 text-primary-foreground py-16 md:py-24 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-accent/20 to-transparent"></div>
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
-      </div>
+     {/* --- UPDATED VIDEO BACKGROUND --- */}
+<div className="absolute inset-0 z-0 overflow-hidden">
+  {/* The HTML5 Video Element */}
+  <video
+    autoPlay
+    loop
+    muted
+    playsInline
+    poster="/assets/images/profilwwe.png" // A static image fallback
+    className="absolute w-full h-full object-cover"
+  >
+    <source src="/assets/videos/section-background-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  
+  {/* The Color Overlay - To make content readable */}
+  <div className="absolute inset-0 bg-primary/70"></div>
+</div>
 
       <div className="relative max-w-7xl mx-auto px-5 md:px-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -108,10 +120,10 @@ const ServiceHero = ({ selectedService, onConsultationClick }) => {
               </Button>
 
               <Button
-                variant="outline"
+                variant="primary"
                 size="lg"
-                onClick={() => window.open('https://wa.me/254700000000?text=Hi! I\'m interested in ' + service.title + ' services.', '_blank')}
-                className="btn-hover-scale border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                onClick={() => window.open('https://wa.me/254115706542?text=Hi! I\'m interested in ' + service.title + ' services.', '_blank')}
+                className="btn-hover-scale border-primary-foreground/30 text-primary-foreground hover:bg-secondary-foreground hover:text-primary"
                 iconName="MessageCircle"
                 iconPosition="left"
               >

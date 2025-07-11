@@ -8,28 +8,28 @@ const ClientTestimonials = () => {
   const testimonialsData = [
     {
       id: 1,
-      name: "Peter Kariuki",
+      name: "Kevin Bond",
       position: "CEO",
-      company: "TechStart Kenya",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=40&fit=crop",
-      testimonial: `Evoq Creative Tech transformed our online presence completely. Their AI-enhanced website not only looks stunning but has increased our lead generation by 300%. David and his team truly understand the Kenyan market and delivered beyond our expectations.`,
+      company: "Luna Graphics",
+      image: "/assets/images/avatar.jpg",
+      logo: "/assets/images/logo.png",
+      testimonial: `Evoq Creative Tech transformed our online presence completely. Their AI-enhanced website not only looks stunning but has increased our lead generation by 300%. Ian and his team truly understand the Kenyan market and delivered beyond our expectations.`,
       rating: 5,
       project: "AI-Enhanced Business Website",
       results: "300% increase in leads"
     },
     {
       id: 2,
-      name: "Mary Wanjiru",
-      position: "Marketing Director",
-      company: "Savannah Retail Group",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face",
-      logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=120&h=40&fit=crop",
-      testimonial: `The e-commerce platform Evoq built for us has revolutionized our business. Sales have increased by 250% since launch, and the M-Pesa integration works flawlessly. Their attention to detail and understanding of local payment preferences is exceptional.`,
+      name: "Naitore Mugambi",
+      position: "CEO & Founder",
+      company: "Luxe & Allure Events",
+      image: "/assets/images/avatar.jpg",
+      logo: "/assets/images/logo1.jpg",
+      testimonial: `The Gallery webiste Evoq built for us has revolutionized our business. Sales have increased by 250% since launch. Their attention to detail and understanding of local Kenyan preferences is exceptional.`,
       rating: 5,
-      project: "E-commerce Platform Development",
+      project: "Gallery Business Website",
       results: "250% increase in sales"
-    },
+    }/*
     {
       id: 3,
       name: "James Muthomi",
@@ -77,7 +77,7 @@ const ClientTestimonials = () => {
       rating: 5,
       project: "FinTech Dashboard Development",
       results: "Enhanced security & analytics"
-    }
+    }*/
   ];
 
   const nextTestimonial = () => {
@@ -244,7 +244,7 @@ const ClientTestimonials = () => {
               <button
                 onClick={() => {
                   const message = encodeURIComponent("Hi! I'd like to discuss how Evoq Creative Tech can help transform my business.");
-                  window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+                  window.open(`https://wa.me/+254115706542?text=${message}`, '_blank');
                 }}
                 className="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-medium rounded-lg transition-colors duration-200 btn-hover-scale"
               >

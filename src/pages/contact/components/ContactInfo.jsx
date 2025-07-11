@@ -7,16 +7,14 @@ const ContactInfo = () => {
     {
       icon: 'Phone',
       title: 'Phone',
-      primary: '+254 700 000 000',
-      secondary: '+254 711 000 000',
-      action: () => window.location.href = 'tel:+254700000000'
+      primary: '+254 115 706 542',
+      action: () => window.location.href = 'tel:+254115706542'
     },
     {
       icon: 'Mail',
       title: 'Email',
-      primary: 'hello@evoqcreativetech.com',
-      secondary: 'projects@evoqcreativetech.com',
-      action: () => window.location.href = 'mailto:hello@evoqcreativetech.com'
+      primary: 'evoqcreativetech@gmail.com',
+      action: () => window.location.href = 'mailto:evoqcreativetech@gmail.com'
     },
     {
       icon: 'MapPin',
@@ -37,25 +35,25 @@ const ContactInfo = () => {
     {
       name: 'Facebook',
       icon: 'Facebook',
-      url: 'https://facebook.com/evoqcreativetech',
+      url: '#',
       color: 'text-blue-600'
     },
     {
       name: 'Instagram',
       icon: 'Instagram',
-      url: 'https://instagram.com/evoqcreativetech',
+      url: 'https://www.instagram.com/evoqtech?igsh=MWVzNXFvYjNwcTczeg==',
       color: 'text-pink-600'
     },
     {
       name: 'LinkedIn',
       icon: 'Linkedin',
-      url: 'https://linkedin.com/company/evoqcreativetech',
+      url: '#',
       color: 'text-blue-700'
     },
     {
-      name: 'Twitter',
+      name: 'TikTok',
       icon: 'Twitter',
-      url: 'https://twitter.com/evoqcreativetech',
+      url: 'https://www.tiktok.com/@evoq.creative.tech?_t=ZM-8xw0CRNwlbK&_r=1',
       color: 'text-blue-500'
     }
   ];

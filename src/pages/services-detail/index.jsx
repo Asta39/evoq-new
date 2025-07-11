@@ -108,7 +108,7 @@ const ServicesDetail = () => {
               </button>
               
               <button
-                onClick={() => window.open('https://wa.me/254700000000?text=Hi! I\'m ready to start my project with Evoq Creative Tech.', '_blank')}
+                onClick={() => window.open('https://wa.me/254115706542?text=Hi! I\'m ready to start my project with Evoq Creative Tech.', '_blank')}
                 className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-success hover:bg-success/90 text-success-foreground font-body font-medium rounded-lg transition-colors duration-200 ease-in-out btn-hover-scale"
               >
                 <span>Start Project Now</span>
@@ -117,7 +117,7 @@ const ServicesDetail = () => {
             
             <div className="mt-8 pt-8 border-t border-primary-foreground/20">
               <p className="font-body text-sm text-primary-foreground/80">
-                🚀 Free consultation • 💰 Transparent pricing • ⚡ Fast delivery • 🔒 100% satisfaction guarantee
+                 Free consultation • Transparent pricing • Fast delivery • 100% satisfaction guarantee
               </p>
             </div>
           </div>

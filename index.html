@@ -51,10 +51,23 @@
     <link rel="canonical" href="https://evoq-creative-tech.vercel.app/" />
     
     <!-- Favicon and Icons -->
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2D2D2D" />
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
     
     <!-- Manifest -->
     <link rel="manifest" href="/manifest.json" />
@@ -133,12 +146,12 @@
     <meta name="msvalidate.01" content="YOUR_BING_WEBMASTER_CODE" />
     
     <!-- Google Analytics (Replace with actual tracking ID) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XK78CKXKG2"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
+      gtag('config', 'G-XK78CKXKG2');
     </script>
     
     <!-- Critical CSS (Should be inlined for performance) -->
@@ -148,7 +161,48 @@
       .loading { display: flex; justify-content: center; align-items: center; height: 100vh; }
     </style>
     
-    <script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fevoqcreat5544back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.5"></script>
+    <style>
+      .loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7fafc; /* A light gray background, change if needed */
+  }
+
+  .loading-dots {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between dots */
+  }
+
+  .loading-dots div {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #4f46e5; /* A primary color, change to your brand color */
+    animation: pulse 1.4s infinite ease-in-out both;
+  }
+
+  .loading-dots div:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  .loading-dots div:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes pulse {
+    0%, 80%, 100% {
+      transform: scale(0.5);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1.0);
+      opacity: 1;
+    }
+  }
+    </style>
   </head>
   <body>
     <noscript>
@@ -159,14 +213,16 @@
       </div>
     </noscript>
     
-    <div class="dhiwise-code" id="root">
-      <div class="loading">
-        <div style="text-align: center;">
-          <div style="width: 50px; height: 50px; border: 3px solid #f3f3f3; border-top: 3px solid #2D2D2D; border-radius: 50%; animation: spin 1s linear infinite;"></div>
-          <p style="margin-top: 20px; color: #666;">Loading...</p>
-        </div>
-      </div>
+<!-- PASTE THIS NEW HTML -->
+<div id="root">
+  <div class="loading-container">
+    <div class="loading-dots">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
+  </div>
+</div>
     
     <script type="module" src="/src/index.jsx"></script>
     

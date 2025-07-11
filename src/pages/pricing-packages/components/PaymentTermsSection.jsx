@@ -11,8 +11,8 @@ const PaymentTermsSection = () => {
       name: 'M-Pesa',
       icon: 'Smartphone',
       details: [
-        'Paybill Number: 522522',
-        'Account Number: EVOQ[YourName]',
+        'Paybill Number: 303030',
+        'Account Number: 2052573850',
         'Instant payment confirmation',
         'Secure mobile money transfer'
       ]
@@ -22,9 +22,9 @@ const PaymentTermsSection = () => {
       name: 'Bank Transfer',
       icon: 'Building2',
       details: [
-        'Bank: Equity Bank Kenya',
-        'Account: 1234567890',
-        'Account Name: Evoq Creative Tech',
+        'Bank: ABSA Bank Kenya',
+        'Account: 2052573850',
+        'Account Name: *********',
         'Swift Code: EQBLKENA'
       ]
     },
@@ -219,7 +219,7 @@ const PaymentTermsSection = () => {
           size="lg"
           onClick={() => {
             const message = encodeURIComponent("Hi! I have questions about your payment terms and policies.");
-            window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+            window.open(`https://wa.me/+254115706542?text=${message}`, '_blank');
           }}
           className="btn-hover-scale"
           iconName="MessageCircle"

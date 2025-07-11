@@ -6,37 +6,37 @@ const FounderStory = () => {
     journey: [
       {
         phase: "The Beginning",
-        year: "2016",
-        description: `Started as a computer science student at the University of Nairobi with a passion for solving real-world problems through technology. My first project was building a simple inventory system for a local shop in Kibera.`,
+        year: "2024",
+        description: `Started as an IT student at the Kenyatta University with a passion for solving real-world problems through technology. My first project was building a full website for a wedding company.`,
         icon: "Lightbulb"
       },
       {
         phase: "Learning & Growth",
-        year: "2018",
+        year: "2024",
         description: `Worked with various startups across Nairobi, learning the ins and outs of web development, user experience design, and the unique challenges facing Kenyan businesses in the digital space.`,
         icon: "TrendingUp"
       },
       {
         phase: "Vision Formation",
-        year: "2020",
+        year: "2024",
         description: `Realized that many Kenyan businesses were being left behind in the digital transformation. I saw an opportunity to bridge this gap with affordable, high-quality digital solutions tailored for the local market.`,
         icon: "Eye"
       },
       {
         phase: "Evoq Creative Tech",
-        year: "2021",
+        year: "2025",
         description: `Founded Evoq Creative Tech with a mission to democratize access to premium digital solutions for Kenyan businesses. Started with a small team of passionate developers and designers.`,
         icon: "Rocket"
       },
       {
         phase: "AI Integration",
-        year: "2023",
+        year: "2025",
         description: `Pioneered AI-enhanced web solutions in Kenya, helping businesses leverage artificial intelligence for better customer experiences, automated workflows, and data-driven decision making.`,
         icon: "Brain"
       },
       {
         phase: "Future Vision",
-        year: "2024+",
+        year: "2025+",
         description: `Expanding across East Africa while maintaining our commitment to innovation, quality, and empowering local businesses with world-class digital solutions that drive real growth.`,
         icon: "Globe"
       }

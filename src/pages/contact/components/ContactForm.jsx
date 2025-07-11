@@ -1,3 +1,5 @@
+// src/pages/contact/components/ContactForm.jsx -- THE COMPLETE AND FINAL CODE --
+
 import React, { useState } from 'react';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
@@ -32,7 +34,6 @@ const ContactForm = () => {
       [name]: value
     }));
     
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -43,56 +44,49 @@ const ContactForm = () => {
 
   const validateForm = () => {
     const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
-
-    if (!formData.service) {
-      newErrors.service = 'Please select a service';
-    }
-
+    if (!formData.service) newErrors.service = 'Please select a service';
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 10) {
       newErrors.message = 'Message must be at least 10 characters long';
     }
-
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
-    try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
+    const serviceLabel = serviceOptions.find(opt => opt.value === formData.service)?.label || formData.service;
+    const whatsappNumber = "254115706542";
+    const formattedMessage = `
+*New Contact Form Submission*
+
+*Name:* ${formData.name}
+*Email:* ${formData.email}
+*Service of Interest:* ${serviceLabel}
+
+*Message:*
+${formData.message}
+    `;
+    const encodedMessage = encodeURIComponent(formattedMessage.trim());
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    setTimeout(() => {
       setIsSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        service: '',
-        message: ''
-      });
-    } catch (error) {
-      console.error('Form submission error:', error);
-    } finally {
       setIsSubmitting(false);
-    }
+    }, 500);
   };
 
   if (isSubmitted) {

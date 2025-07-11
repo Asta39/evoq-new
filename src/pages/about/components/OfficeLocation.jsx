@@ -3,18 +3,18 @@ import Icon from '../../../components/AppIcon';
 
 const OfficeLocation = () => {
   const locationData = {
-    address: "Westlands Business Center, 4th Floor, Suite 402",
+    address: "Nairobi, CBD",
     city: "Nairobi, Kenya",
-    phone: "+254 700 000 000",
-    email: "hello@evoqcreativetech.co.ke",
+    phone: "+254 115 706 542",
+    email: "evoqcreativetech@gmail.com",
     hours: {
       weekdays: "Monday - Friday: 8:00 AM - 6:00 PM",
       saturday: "Saturday: 9:00 AM - 2:00 PM",
       sunday: "Sunday: Closed"
     },
     coordinates: {
-      lat: -1.2634,
-      lng: 36.8155
+      lat: -1.2802983833101498,
+      lng: 36.82265471554703
     }
   };
 
@@ -62,7 +62,7 @@ const OfficeLocation = () => {
         break;
       case "Start Chat":
         const message = encodeURIComponent("Hi! I'd like to discuss my project with your team.");
-        window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+        window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
         break;
       default:
         break;
@@ -94,7 +94,7 @@ const OfficeLocation = () => {
             Visit Us in Nairobi
           </h2>
           <p className="font-body text-lg md:text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
-            Located in the heart of Westlands, our modern office space is designed to foster creativity and collaboration. We're always excited to meet with clients and discuss their digital transformation needs.
+            Located in the heart of Nairobi, our modern office space is designed to foster creativity and collaboration.
           </p>
         </div>
 
@@ -232,7 +232,7 @@ const OfficeLocation = () => {
             <button
               onClick={() => {
                 const message = encodeURIComponent("Hi! I'd like to schedule a visit to your office to discuss my project.");
-                window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+                window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
               }}
               className="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-medium rounded-lg transition-colors duration-200 btn-hover-scale"
             >

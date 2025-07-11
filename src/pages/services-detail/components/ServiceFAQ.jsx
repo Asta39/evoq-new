@@ -161,16 +161,13 @@ const ServiceFAQ = ({ selectedService }) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
-              onClick={() => window.open('https://wa.me/254700000000?text=Hi! I have some questions about your services.', '_blank')}
+              onClick={() => window.open('https://wa.me/254115706542?text=Hi! I have some questions about your services.', '_blank')}
               className="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-success hover:bg-success/90 text-success-foreground font-body font-medium rounded-lg transition-colors duration-200 ease-in-out btn-hover-scale"
             >
               <Icon name="MessageCircle" size={18} />
               <span>Chat on WhatsApp</span>
             </button>
-            <button className="inline-flex items-center justify-center space-x-2 px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-body font-medium rounded-lg transition-colors duration-200 ease-in-out btn-hover-scale">
-              <Icon name="Mail" size={18} />
-              <span>Send Email</span>
-            </button>
+
           </div>
         </div>
       </div>

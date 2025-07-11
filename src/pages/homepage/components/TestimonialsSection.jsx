@@ -1,3 +1,5 @@
+// src/pages/homepage/components/TestimonialsSection.jsx -- UPDATED CODE --
+
 import React, { useState, useEffect } from 'react';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
@@ -5,33 +7,37 @@ import Image from '../../../components/AppImage';
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
+  // --- THIS IS THE ONLY PART THAT CHANGES ---
   const testimonials = [
     {
       id: 1,
-      name: "Sarah Wanjiku",
-      position: "CEO, Nairobi Fashion Hub",
-      company: "Fashion Retail",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      content: `Evoq Creative Tech transformed our online presence completely. The AI-powered website they built for us has increased our online sales by 300% in just 6 months. Their understanding of the Kenyan market is exceptional.`,
+      name: "Kevin Bond",
+      position: "CEO, Luna Graphics",
+      company: "Print shop",
+      // Pointing to your new local image
+      avatar: "/assets/images/avatar.jpg", 
+      content: `Evoq Creative Tech transformed our online presence completely. The print shop website they built for us has increased our online sales by 300% in just 6 months. Their understanding of the Kenyan market is exceptional.`,
       rating: 5,
-      project: "E-commerce Website with AI Recommendations"
+      project: "Informative business website"
     },
     {
       id: 2,
-      name: "James Mwangi",
-      position: "Founder, TechStart Kenya",
-      company: "Technology Startup",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      content: `The team at Evoq delivered beyond our expectations. Our startup needed a professional website that could scale with our growth, and they provided exactly that. The agentic chatbot has revolutionized our customer support.`,
+      name: "Naitore Mugambi",
+      position: "Founder, Luxe & Allure Events ",
+      company: "Wedding Company",
+      // Pointing to your new local image
+      avatar: "/assets/images/avatar.jpg",
+      content: `The team at Luxe & Allure Events  delivered beyond our expectations. Our wedding company needed a professional website that could scale with our growth, and they provided exactly that. The agentic chatbot has revolutionized our customer support.`,
       rating: 5,
-      project: "Startup Website with AI Chatbot"
-    },
+      project: "Wedding Company Website"
+    },/*
     {
       id: 3,
       name: "Grace Akinyi",
       position: "Marketing Director, Savannah Tours",
       company: "Tourism & Travel",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      // Pointing to your new local image
+      avatar: "/assets/images/avatar.jpg",
       content: `Working with Evoq was a game-changer for our tourism business. The website redesign and SEO optimization brought us to the first page of Google. Our booking inquiries have tripled since the launch.`,
       rating: 5,
       project: "Tourism Website Redesign & SEO"
@@ -41,13 +47,17 @@ const TestimonialsSection = () => {
       name: "David Kiprop",
       position: "Director, Rift Valley NGO",
       company: "Non-Profit Organization",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      // Pointing to your new local image
+      avatar: "/assets/images/avatar.jpg",
       content: `Evoq Creative Tech understood our mission and created a website that perfectly represents our cause. The donation integration and volunteer management system have streamlined our operations significantly.`,
       rating: 5,
       project: "NGO Website with Donation System"
-    }
+    }*/
   ];
 
+  // The rest of your component's logic and JSX does NOT need to change.
+  // It will automatically use the new avatar path from the data above.
+  
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -106,7 +116,7 @@ const TestimonialsSection = () => {
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Image
                   src={currentData.avatar}
-                  alt={currentData.name}
+                  alt={currentData.name} // The alt text remains dynamic, which is good for accessibility
                   className="w-16 h-16 rounded-full object-cover"
                 />
                 <div className="text-center sm:text-left">
@@ -141,8 +151,6 @@ const TestimonialsSection = () => {
             >
               <Icon name="ChevronLeft" size={20} />
             </button>
-
-            {/* Dots Indicator */}
             <div className="flex gap-2">
               {testimonials.map((_, index) => (
                 <button
@@ -156,7 +164,6 @@ const TestimonialsSection = () => {
                 />
               ))}
             </div>
-
             <button
               onClick={nextTestimonial}
               className="w-12 h-12 bg-background hover:bg-accent hover:text-accent-foreground rounded-full flex items-center justify-center transition-all duration-200 ease-in-out shadow-sm btn-hover-scale"
@@ -170,18 +177,14 @@ const TestimonialsSection = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
           {[
-            { number: "50+", label: "Happy Clients" },
-            { number: "100+", label: "Projects Completed" },
+            { number: "30+", label: "Happy Clients" },
+            { number: "50+", label: "Projects Completed" },
             { number: "99%", label: "Client Satisfaction" },
             { number: "24/7", label: "Support Available" }
           ].map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="font-heading font-bold text-3xl md:text-4xl text-accent mb-2">
-                {stat.number}
-              </div>
-              <div className="font-body text-sm text-text-secondary">
-                {stat.label}
-              </div>
+              <div className="font-heading font-bold text-3xl md:text-4xl text-accent mb-2">{stat.number}</div>
+              <div className="font-body text-sm text-text-secondary">{stat.label}</div>
             </div>
           ))}
         </div>

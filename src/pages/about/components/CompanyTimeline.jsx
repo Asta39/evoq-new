@@ -4,28 +4,28 @@ import Icon from '../../../components/AppIcon';
 const CompanyTimeline = () => {
   const timelineData = [
     {
-      year: "2021",
+      year: "2025",
       title: "Company Founded",
       description: "Evoq Creative Tech was established with a vision to transform the Kenyan digital landscape. Started with a small team of 3 passionate developers.",
       icon: "Rocket",
       achievements: ["First 5 clients acquired", "Basic web development services launched", "Office established in Nairobi"]
     },
     {
-      year: "2022",
+      year: "2025",
       title: "Rapid Growth",
       description: "Expanded our service offerings and team size. Introduced comprehensive digital marketing solutions and established partnerships with key technology providers.",
       icon: "TrendingUp",
       achievements: ["Team grew to 8 members", "50+ projects completed", "Digital marketing services launched", "First enterprise client acquired"]
     },
     {
-      year: "2023",
+      year: "2025",
       title: "AI Integration Pioneer",
       description: "Became the first Kenyan agency to offer AI-enhanced web solutions. Launched chatbot development services and machine learning integration capabilities.",
       icon: "Brain",
       achievements: ["AI solutions department established", "100+ projects milestone reached", "Chatbot development services launched", "Industry recognition received"]
     },
     {
-      year: "2024",
+      year: "2025",
       title: "Market Leadership",
       description: "Established ourselves as a leading digital agency in Kenya. Expanded client base across East Africa and introduced premium enterprise solutions.",
       icon: "Award",
@@ -138,7 +138,7 @@ const CompanyTimeline = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="font-heading font-bold text-3xl md:text-4xl text-accent mb-2">
-                150+
+                50+
               </div>
               <div className="font-body text-sm text-text-secondary">
                 Projects Completed
@@ -154,7 +154,7 @@ const CompanyTimeline = () => {
             </div>
             <div className="text-center">
               <div className="font-heading font-bold text-3xl md:text-4xl text-primary mb-2">
-                3+
+                2+
               </div>
               <div className="font-body text-sm text-text-secondary">
                 Years of Excellence
@@ -162,7 +162,7 @@ const CompanyTimeline = () => {
             </div>
             <div className="text-center">
               <div className="font-heading font-bold text-3xl md:text-4xl text-warning mb-2">
-                10+
+                8+
               </div>
               <div className="font-body text-sm text-text-secondary">
                 Team Members

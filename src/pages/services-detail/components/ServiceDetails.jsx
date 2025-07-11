@@ -1,9 +1,64 @@
 import React, { useState } from 'react';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
+import Brochure from './Brochure'; // The hidden brochure component
 
 const ServiceDetails = ({ selectedService }) => {
   const [activeTab, setActiveTab] = useState('overview');
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleDownloadBrochure = () => {
+  setIsDownloading(true); // Disable button and show "Downloading..."
+  
+  // Find the hidden brochure component in the DOM
+  const brochureElement = document.getElementById('brochure-to-download');
+  
+  // Use html2canvas to take a high-quality "screenshot" of the component
+  html2canvas(brochureElement, { scale: 2 }) // scale: 2 improves resolution
+    .then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4'); // Create a standard A4 PDF
+      
+      // Calculate dimensions to fit the image to the PDF width
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const canvasWidth = canvas.width;
+      const canvasHeight = canvas.height;
+      const ratio = pdfWidth / canvasWidth;
+      const pdfHeight = canvasHeight * ratio;
+      
+      // Add the screenshot to the PDF
+      pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+      
+      // Create a dynamic file name and save the PDF
+      const fileName = `${currentService.overview.title.replace(/ /g, '-')}-Brochure.pdf`;
+      pdf.save(fileName);
+      
+      setIsDownloading(false); // Re-enable the button
+    });
+};
+
+
+const handleScheduleConsultation = () => {
+  // 1. Define your WhatsApp number (no '+' sign)
+  const whatsappNumber = "254115706542";
+  
+  // 2. Get the title of the currently selected service
+  const serviceTitle = currentService.overview.title;
+
+  // 3. Create a clear, pre-filled message
+  const message = `Hi Evoq Creative Tech, I'd like to schedule a free consultation regarding your *${serviceTitle}* service.`;
+
+  // 4. Encode the message for the URL
+  const encodedMessage = encodeURIComponent(message);
+
+  // 5. Create the full WhatsApp URL
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+  // 6. Open the link in a new tab
+  window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+};
 
   const serviceDetails = {
     'website-development': {
@@ -458,28 +513,34 @@ const ServiceDetails = ({ selectedService }) => {
           <p className="font-body text-text-secondary mb-6 max-w-2xl mx-auto">
             Let's discuss how we can help you achieve your goals with our expert services.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              variant="primary"
-              size="lg"
-              className="btn-hover-scale"
-              iconName="Calendar"
-              iconPosition="left"
-            >
-              Schedule Consultation
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="btn-hover-scale"
-              iconName="Download"
-              iconPosition="left"
-            >
-              Download Brochure
-            </Button>
-          </div>
+         <div className="flex flex-col sm:flex-row gap-4 justify-center">
+  
+  {/* Schedule Consultation Button */}
+<button
+  onClick={handleScheduleConsultation}
+  className="group flex items-center justify-center gap-3 px-8 py-3 font-semibold text-text-primary bg-black/5 backdrop-blur-md border border-black/10 rounded-full transition-all duration-300 hover:bg-black/10 hover:border-black/20"
+>
+  <Icon name="Calendar" size={20} className="transition-transform duration-300 group-hover:scale-110" />
+  <span>Schedule Consultation</span>
+</button>
+  
+  {/* Download Brochure Button */}
+<button
+  onClick={handleDownloadBrochure}
+  disabled={isDownloading}
+  className="group flex items-center justify-center gap-3 px-8 py-3 font-semibold text-text-primary bg-black/5 backdrop-blur-md border border-black/10 rounded-full transition-all duration-300 hover:bg-black/10 hover:border-black/20 disabled:opacity-50 disabled:cursor-not-allowed"
+>
+  <Icon name="Download" size={20} className="transition-transform duration-300 group-hover:scale-110" />
+  <span>{isDownloading ? 'Downloading...' : 'Download Brochure'}</span>
+</button>
+
+</div>
         </div>
       </div>
+      {/* This renders our brochure off-screen so we can capture it */}
+<div style={{ position: 'absolute', left: '-9999px', top: 0, zIndex: -1 }}>
+  <Brochure id="brochure-to-download" service={currentService} />
+</div>
     </section>
   );
 };

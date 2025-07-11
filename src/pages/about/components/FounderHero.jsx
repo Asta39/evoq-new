@@ -5,18 +5,18 @@ import Icon from '../../../components/AppIcon';
 
 const FounderHero = () => {
   const founderData = {
-    name: "David Kimani",
+    name: "Ian Love",
     title: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    image: "/assets/images/founder.jpg",
     mission: `Building the future of digital experiences in Kenya, one innovative solution at a time. My vision is to empower African businesses with cutting-edge technology that drives real growth and transformation.`,
-    experience: "8+ Years",
-    projectsCompleted: "150+",
+    experience: "2+ Years",
+    projectsCompleted: "50+",
     clientsSatisfied: "98%"
   };
 
   const handleConsultation = () => {
     const message = encodeURIComponent("Hi David! I'd like to schedule a consultation to discuss my project needs.");
-    window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+    window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
   };
 
   return (

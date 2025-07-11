@@ -107,7 +107,7 @@ const CompanyValues = () => {
               <button
                 onClick={() => {
                   const message = encodeURIComponent("Hi! I'd like to learn more about how Evoq Creative Tech can help with my project.");
-                  window.open(`https://wa.me/+254700000000?text=${message}`, '_blank');
+                  window.open(`https://wa.me/254115706542?text=${message}`, '_blank');
                 }}
                 className="inline-flex items-center justify-center px-6 py-3 bg-accent hover:bg-accent/90 text-accent-foreground font-medium rounded-lg transition-colors duration-200 btn-hover-scale"
               >
